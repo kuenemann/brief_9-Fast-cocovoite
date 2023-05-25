@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\RideRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -31,6 +33,18 @@ class Ride
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $created = null;
+
+    #[ORM\ManyToOne(inversedBy: 'rides')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $driver = null;
+
+    #[ORM\ManyToMany(targetEntity: Rule::class)]
+    private Collection $rule;
+
+    public function __construct()
+    {
+        $this->rule = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -105,6 +119,42 @@ class Ride
     public function setCreated(\DateTimeInterface $created): self
     {
         $this->created = $created;
+
+        return $this;
+    }
+
+    public function getDriver(): ?User
+    {
+        return $this->driver;
+    }
+
+    public function setDriver(?User $driver): self
+    {
+        $this->driver = $driver;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Rule>
+     */
+    public function getRule(): Collection
+    {
+        return $this->rule;
+    }
+
+    public function addRule(Rule $rule): self
+    {
+        if (!$this->rule->contains($rule)) {
+            $this->rule->add($rule);
+        }
+
+        return $this;
+    }
+
+    public function removeRule(Rule $rule): self
+    {
+        $this->rule->removeElement($rule);
 
         return $this;
     }
