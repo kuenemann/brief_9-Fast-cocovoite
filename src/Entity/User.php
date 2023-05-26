@@ -31,13 +31,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $fist_name = null;
+    private ?string $first_name = null;
 
     #[ORM\Column(length: 255)]
     private ?string $last_name = null;
 
     #[ORM\Column]
-    private ?float $phone = null;
+    private ?string $phone = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $created = null;
@@ -128,14 +128,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
-    public function getFistName(): ?string
+    public function getFirstName(): ?string
     {
-        return $this->fist_name;
+        return $this->first_name;
     }
 
-    public function setFistName(string $fist_name): self
+    public function setFirstName(string $first_name): self
     {
-        $this->fist_name = $fist_name;
+        $this->first_name = $first_name;
 
         return $this;
     }
@@ -152,12 +152,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getPhone(): ?float
+    public function getPhone(): ?string
     {
         return $this->phone;
     }
 
-    public function setPhone(float $phone): self
+    public function setPhone(string $phone): self
     {
         $this->phone = $phone;
 
