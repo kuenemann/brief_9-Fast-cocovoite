@@ -16,12 +16,16 @@
         {% block javascripts_two %}
 			{{ encore_entry_script_tags('nav-bar') }}
 		{% endblock %}
+		
 	</head>
 
 	<body>
-    {% include "./compenents/nav-bar.html.twig" %}
+   
+ 	{% include "./compenents/nav-bar.html.twig" %}	
+	{% include "./offers/inscription.html.twig" %}
+		
 		{% block body %}{% endblock %}
-
+		
 	</body>
 </html>
 

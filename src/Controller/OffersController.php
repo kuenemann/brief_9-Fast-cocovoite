@@ -20,11 +20,11 @@ class OffersController extends AbstractController
     }
 
 
-    #[Route('/offers/detail', name: 'offers_detail')]
-    public function detail(): Response
+    #[Route('/offers/index', name: 'offers_index')]
+    public function index(): Response
     {
-        $pagetitle='offers/detail';
-        return $this->render('offers/detail.html.twig', [
+        $pagetitle='offers/index';
+        return $this->render('offers/index.html.twig', [
             'controller_name' => 'OffersController',
             'page_title' => $pagetitle,
         ]);
@@ -32,15 +32,27 @@ class OffersController extends AbstractController
 
 
 
-    #[Route('/offers/test', name: 'offers_test')]
-    public function test(): Response
+    #[Route('/offers/inscription', name: 'offers_inscription')]
+    public function inscription(): Response
     {
-        $pagetitle='offerts/test';
-        return $this->render('offers/test.html.twig', [
+        $pagetitle='offerts/inscription';
+        return $this->render('offers/inscription.html.twig', [
             'controller_name' => 'OffersController',
             'page_title' => $pagetitle,
         ]);
     }
 
+
+    #[Route('/offers/reservation', name: 'offers_reservation')]
+    public function reservation(): Response
+    {
+        $pagereservation='offerts/reservation';
+        return $this->render('offers/reservation.html.twig',[
+            'controller_name' => 'OffersController',
+            'page_title' => $pagereservation,
+        ]);
+    }
+
+  
 }
 
