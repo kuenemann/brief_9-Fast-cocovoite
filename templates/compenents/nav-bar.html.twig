@@ -1,7 +1,7 @@
 
     <nav>
 
-      <a href="#" class="nav-icon" aria-label="homepage" aria-current="page">
+      <a href="/" class="nav-icon" aria-label="homepage" aria-current="page">
        <img src="{{ asset('img/images.png') }}" alt="Fast-cocovoite-logo">
         <span>Fast-Cocovoite</span>
       </a>
@@ -13,22 +13,26 @@
             <span></span>
           </button>
         <div class="navlinks-container">
-          <a href="#" aria-current="page">Home</a>
-          <a href="/offers/test">Services</a>
-          <a href="#">Pricing</a>
-          <a href="#">Community</a>
-          <a href="#">Contact</a>
+          <a href="#" aria-current="page">Courvoiturage</a>
+          <a href="">Bus</a>
+          <a href="/">Courvoiturage du Quotidien</a>
         </div>
       </div>
 
-      <div class="nav-authentication">
+         <div class="nav-authentication">
         <a href="#" class="user-toggler" aria-label="Sign in page">
-          <img src="ressources/user.svg" alt="user icon" />
+            <img src="./img/user.svg" alt="user icon"/>
         </a>
         <div class="sign-btns">
-          <button type="button">Sign In</button>
-          <button type="button">Sign Up</button>
+            {% if app.user %}
+                    <button onclick="window.location.href = '/logout';" type="button">Rechercher</button>
+                    <button onclick="window.location.href = '/logout';" type="button">Publier un trajet</button>
+                    <button onclick="window.location.href = '/logout';" type="button">Se déconnecter</button>
+            {% else %}
+                    <button onclick="window.location.href = '/login';" type="button">Rechercher</button>
+                    <button onclick="window.location.href = '/login';" type="button">Connexion</button>
+            {% endif %}
         </div>
-      </div>
+    </div>
       
     </nav>
