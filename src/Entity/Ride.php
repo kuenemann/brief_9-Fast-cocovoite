@@ -16,8 +16,8 @@ class Ride
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $departure = null;
+    #[ORM\Column(length: 100)]
+    private ?string $departure = null;
 
     #[ORM\Column(length: 100)]
     private ?string $destination = null;
@@ -41,9 +41,13 @@ class Ride
     #[ORM\ManyToMany(targetEntity: Rule::class)]
     private Collection $rule;
 
+    #[ORM\ManyToMany(targetEntity: Rule::class, inversedBy: 'rides')]
+    private Collection $rules;
+
     public function __construct()
     {
         $this->rule = new ArrayCollection();
+        $this->rules = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -51,12 +55,12 @@ class Ride
         return $this->id;
     }
 
-    public function getDeparture(): ?\DateTimeInterface
+    public function getDeparture(): ?string
     {
         return $this->departure;
     }
 
-    public function setDeparture(\DateTimeInterface $departure): self
+    public function setDeparture(string $departure): self
     {
         $this->departure = $departure;
 
@@ -157,5 +161,13 @@ class Ride
         $this->rule->removeElement($rule);
 
         return $this;
+    }
+
+    /**
+     * @return Collection<int, Rule>
+     */
+    public function getRules(): Collection
+    {
+        return $this->rules;
     }
 }
