@@ -11,5 +11,8 @@ import './styles/nav-bar.scss';
 import './styles/inscription.scss';
 import './styles/footer.scss';
 import './styles/homepage.scss';
+import './styles/register.scss';
+import './styles/login.scss';
+
 // start the Stimulus application
 
