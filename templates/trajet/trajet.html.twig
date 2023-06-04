@@ -1,0 +1,31 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Trajets{% endblock %}
+
+{% block body %}
+    <main class="trajet">
+        <section class="row">
+            <div class="blabla">
+                <h1>Liste des trajets</h1>
+
+                <ul class="annonces">
+                    {% for ride in trajets %}
+                        <li class="annonce">
+                            <div class="annonce-details">
+                                <h2>Trajet de {{ ride.departure }} à {{ ride.destination }}</h2>
+                                <p>Prix : {{ ride.price }}</p>
+                                <p>Places disponibles : {{ ride.seats }}</p>
+                            </div>
+                            <a href="#" class="btn-reserver">Réserver</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+    </main>
+{% endblock %}
+
+
+
+

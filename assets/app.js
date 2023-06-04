@@ -8,11 +8,11 @@
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.scss';
 import './styles/nav-bar.scss';
-import './styles/inscription.scss';
 import './styles/footer.scss';
 import './styles/homepage.scss';
 import './styles/register.scss';
 import './styles/login.scss';
+import './styles/trajet.scss';
 
 // start the Stimulus application
 
