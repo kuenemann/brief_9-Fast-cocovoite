@@ -1,0 +1,31 @@
+
+ {% extends 'base.html.twig' %}
+
+{% block title %}Détails du trajet{% endblock %}
+
+{% block body %}
+    <main class="trajet-details">
+        <section class="row">
+            <div class="blabla">
+                <h1>Détails du trajet</h1>
+
+                <div class="annonce-details">
+                    <h2>Trajet de {{ trajet.departure }} à {{ trajet.destination }}</h2>
+                    <p>Prix : {{ trajet.price }}</p>
+                    <p>Places disponibles : {{ trajet.seats }}</p>
+                    <p>Date : {{ trajet.date|date('Y-m-d') }}</p>
+                    <p>Créé le : {{ trajet.created|date('Y-m-d H:i:s') }}</p>
+                    <p>Conducteur : {{ trajet.driver.firstName }}</p>
+                    <p>Règles :</p>
+                    <ul>
+                        {% for rule in trajet.rules %}
+                            <li>{{ rule.name }}</li>
+                        {% endfor %}
+                    </ul>
+
+                    <a href="{{ path('app_trajet') }}" class="btn btn-primary">Trajet</a>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}

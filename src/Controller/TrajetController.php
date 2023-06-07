@@ -12,11 +12,22 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class TrajetController extends AbstractController
 {
-    #[Route('/trajet', name: 'app_trajet')]
+    #[Route('/covoiturage', name: 'app_trajet')]
     public function index(RideRepository $rideRepository): Response
     {
+        $trajets = $rideRepository->findBy([], ['id' => 'ASC']);
+
         return $this->render('trajet/trajet.html.twig', [
-            'trajets' => $rideRepository->findBy([], ['id'=>'ASC'])
+            'trajets' => $trajets
         ]);
     }
+
+    #[Route('/covoiturage/{id}', name: 'app_trajet_details')]
+    public function show(Ride $ride): Response
+    {
+        return $this->render('trajet/trajet_details.html.twig', [
+            'trajet' => $ride
+        ]);
+    }
+
 }

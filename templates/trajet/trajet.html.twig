@@ -1,3 +1,63 @@
+{# 
+ {% extends 'base.html.twig' %}
+
+{% block title %}Trajets{% endblock %}
+
+{% block body %}
+    <main class="trajet">
+        <section class="row">
+            <div class="blabla">
+                <h1>Liste des trajets</h1>
+
+                <ul class="annonces">
+                    {% for ride in trajets %}
+                        <li class="annonce">
+                            <div class="annonce-details">
+                                <h2><a href="{{ path('app_trajet_details', {'id': ride.id}) }}">Trajet de {{ ride.departure }} à {{ ride.destination }}</a></h2>
+                                <p>Prix : {{ ride.price }}</p>
+                                <p>Places disponibles : {{ ride.seats }}</p>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+    </main>
+{% endblock %}
+   #}
+
+   {# {% extends 'base.html.twig' %}
+
+{% block title %}Trajets
+{% endblock %}
+
+{% block body %}
+	<main class="trajet">
+		<section class="row">
+			<div class="blabla">
+				<h1>Liste des trajets</h1>
+
+				<ul class="annonces">
+					{% for ride in trajets %}
+						<li class="annonce">
+							<div class="annonce-details">
+								<h2>Trajet de
+									{{ ride.departure }}
+									à
+									{{ ride.destination }}</h2>
+								<p>Prix :
+									{{ ride.price }}</p>
+								<p>Places disponibles :
+									{{ ride.seats }}</p>
+							</div>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</section>
+	</main>
+{% endblock %}
+ #}
 
 {% extends 'base.html.twig' %}
 
@@ -13,11 +73,19 @@
                     {% for ride in trajets %}
                         <li class="annonce">
                             <div class="annonce-details">
-                                <h2>Trajet de {{ ride.departure }} à {{ ride.destination }}</h2>
+                                <h2><a href="{{ path('app_trajet_details', {'id': ride.id}) }}">Trajet de {{ ride.departure }} à {{ ride.destination }}</a></h2>
                                 <p>Prix : {{ ride.price }}</p>
                                 <p>Places disponibles : {{ ride.seats }}</p>
+                                <p>Date : {{ ride.date|date('Y-m-d') }}</p>
+                                <p>Créé le : {{ ride.created|date('Y-m-d H:i:s') }}</p>
+                                <p>Conducteur : {{ ride.driver.firstName }}</p>
+                                <p>Règles :</p>
+                                <ul>
+                                    {% for rule in ride.rules %}
+                                        <li>{{ rule.name }}</li>
+                                    {% endfor %}
+                                </ul>
                             </div>
-                            <a href="#" class="btn-reserver">Réserver</a>
                         </li>
                     {% endfor %}
                 </ul>
@@ -25,7 +93,4 @@
         </section>
     </main>
 {% endblock %}
-
-
-
 

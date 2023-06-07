@@ -13,6 +13,7 @@ import './styles/homepage.scss';
 import './styles/register.scss';
 import './styles/login.scss';
 import './styles/trajet.scss';
+import './styles/trajet-details.scss';
 
 // start the Stimulus application
 
