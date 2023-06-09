@@ -23,8 +23,8 @@
                     <td>{{ car.brand }} {{ car.model }}</td>
                     <td>
                       <div class="btn-group">
-                        <button class="btn btn-primary">Modifier</button>
-                        <button class="btn btn-danger">Supprimer</button>
+                        <a href="{{ path('app_edit', {'id': car.id}) }}" class="btn btn-primary">Modifier</a>
+                        <a href="{{ path('app_delete_car', {'id': car.id}) }}" class="btn btn-danger">Supprimer</a>
                       </div>
                     </td>
                   </tr>
@@ -34,7 +34,7 @@
               {% else %}
               <p>Aucune voiture enregistrée.</p>
               {% endif %}
-              <button class="btn btn-success">Ajouter</button>
+              <a href="{{ path('app_add') }}" class="btn btn-success">Ajouter</a>
               <!-- Bouton Ajouter -->
             </div>
           </div>
@@ -54,8 +54,8 @@
                     <td>{{ ride.driver.email }}</td>
                     <td>
                       <div class="btn-group">
-                        <button class="btn btn-primary">Modifier</button>
-                        <button class="btn btn-danger">Supprimer</button>
+                        <a href="#" class="btn btn-primary">Modifier</a>
+                        <a href="{{ path('app_delete_ride', {'id': ride.id}) }}" class="btn btn-danger">Supprimer</a>
                       </div>
                     </td>
                   </tr>
@@ -63,7 +63,7 @@
                 </tbody>
               </table>
               {% endif %}
-              <button class="btn btn-success">Ajouter</button>
+            <a href="" class="btn btn-success">Ajouter</a>
               <!-- Bouton Ajouter -->
             </div>
           </div>
@@ -84,8 +84,8 @@
                     <td>{{ user.lastName }}</td>
                     <td>
                       <div class="btn-group">
-                        <button class="btn btn-primary">Modifier</button>
-                        <button class="btn btn-danger">Supprimer</button>
+                        <a href="#" class="btn btn-primary">Modifier</a>
+                        <a href="{{ path('app_delete_user') }}" class="btn btn-danger">Supprimer</a>
                       </div>
                     </td>
                   </tr>
@@ -94,8 +94,8 @@
                     <td>{{ user.firstName }}</td>
                     <td>
                       <div class="btn-group">
-                        <button class="btn btn-primary">Modifier</button>
-                        <button class="btn btn-danger">Supprimer</button>
+                        <a href="#" class="btn btn-primary">Modifier</a>
+                        <a href="{{ path('app_delete_user') }}" class="btn btn-danger">Supprimer</a>
                       </div>
                     </td>
                   </tr>
@@ -104,8 +104,8 @@
                     <td>{{ user.email }}</td>
                     <td>
                       <div class="btn-group">
-                        <button class="btn btn-primary">Modifier</button>
-                        <button class="btn btn-danger">Supprimer</button>
+                        <a href="#" class="btn btn-primary">Modifier</a>
+                        <a href="{{ path('app_delete_user') }}" class="btn btn-danger">Supprimer</a>
                       </div>
                     </td>
                   </tr>
@@ -114,8 +114,8 @@
                     <td>{{ user.phone }}</td>
                     <td>
                       <div class="btn-group">
-                        <button class="btn btn-primary">Modifier</button>
-                        <button class="btn btn-danger">Supprimer</button>
+                        <a href="#" class="btn btn-primary">Modifier</a>
+                        <a href="{{ path('app_delete_user') }}" class="btn btn-danger">Supprimer</a>
                       </div>
                     </td>
                   </tr>
@@ -123,7 +123,7 @@
               </table>
             </div>
           </div>
-          <button class="btn btn-success">Ajouter</button>
+          <a href="#" class="btn btn-success">Ajouter</a>
           <!-- Bouton Ajouter -->
         </div>
       </div>
@@ -141,8 +141,8 @@
                 <td>{{ rule.description }}</td>
                 <td>
                   <div class="btn-group">
-                    <button class="btn btn-primary">Modifier</button>
-                    <button class="btn btn-danger">Supprimer</button>
+                    <a href="#" class="btn btn-primary">Modifier</a>
+                    <a href="{{ path('app_delete_rule', {'id': rule.id}) }}" class="btn btn-danger">Supprimer</a>
                   </div>
                 </td>
               </tr>
@@ -150,7 +150,7 @@
             </tbody>
           </table>
           {% endif %}
-          <button class="btn btn-success">Ajouter</button>
+          <a href="#" class="btn btn-success">Ajouter</a>
           <!-- Bouton Ajouter -->
         </div>
       </div>

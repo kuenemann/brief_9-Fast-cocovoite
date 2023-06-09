@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DeleteController!{% endblock %}
+
+{% block body %}
+<form action="{{ path('app_delete_car', {'id': car.id}) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this car?');">
+    <button type="submit" class="btn btn-danger">Supprimer</button>
+</form>
+
+<form action="{{ path('app_delete_ride', {'id': ride.id}) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this ride?');">
+    <button type="submit" class="btn btn-danger">Supprimer</button>
+</form>
+
+<form action="{{ path('app_delete_user') }}" method="post" onsubmit="return confirm('Are you sure you want to delete your account?');">
+    <button type="submit" class="btn btn-danger">Supprimer</button>
+</form>
+
+<form action="{{ path('app_delete_rule', {'id': rule.id}) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this rule?');">
+    <button type="submit" class="btn btn-danger">Supprimer</button>
+</form>
+
+{% endblock %}
+
