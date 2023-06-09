@@ -10,10 +10,11 @@ import './styles/app.scss';
 import './styles/nav-bar.scss';
 import './styles/footer.scss';
 import './styles/homepage.scss';
-import './styles/register.scss';
 import './styles/login.scss';
 import './styles/trajet.scss';
 import './styles/trajet-details.scss';
-
+import "@popperjs/core";
+import './styles/profil.scss';
+import * as bootstrap from "bootstrap";
 // start the Stimulus application
 

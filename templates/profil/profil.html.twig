@@ -1,0 +1,163 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+
+{% block body %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      {% if user %}
+      <h1 class="mt-5 text-center">Bienvenue sur votre profil, {{ app.user.email }}!</h1>
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <div class="card-header text-center">
+              <h2>Vos voitures</h2>
+            </div>
+            <div class="card-body">
+              {% if user.cars is not empty %}
+              <table>
+                <tbody>
+                  {% for car in user.cars %}
+                  <tr>
+                    <td>{{ car.brand }} {{ car.model }}</td>
+                    <td>
+                      <div class="btn-group">
+                        <button class="btn btn-primary">Modifier</button>
+                        <button class="btn btn-danger">Supprimer</button>
+                      </div>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              {% else %}
+              <p>Aucune voiture enregistrée.</p>
+              {% endif %}
+              <button class="btn btn-success">Ajouter</button>
+              <!-- Bouton Ajouter -->
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <div class="card-header text-center">
+              <h2>Vos trajets proposés</h2>
+            </div>
+            <div class="card-body">
+              {% if user.rides is not empty %}
+              <table>
+                <tbody>
+                  {% for ride in user.rides %}
+                  <tr>
+                    <td>{{ ride.driver.email }}</td>
+                    <td>
+                      <div class="btn-group">
+                        <button class="btn btn-primary">Modifier</button>
+                        <button class="btn btn-danger">Supprimer</button>
+                      </div>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              {% endif %}
+              <button class="btn btn-success">Ajouter</button>
+              <!-- Bouton Ajouter -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-header text-center">
+          <h2>Informations personnelles</h2>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Nom:</strong></td>
+                    <td>{{ user.lastName }}</td>
+                    <td>
+                      <div class="btn-group">
+                        <button class="btn btn-primary">Modifier</button>
+                        <button class="btn btn-danger">Supprimer</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Prénom:</strong></td>
+                    <td>{{ user.firstName }}</td>
+                    <td>
+                      <div class="btn-group">
+                        <button class="btn btn-primary">Modifier</button>
+                        <button class="btn btn-danger">Supprimer</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Email:</strong></td>
+                    <td>{{ user.email }}</td>
+                    <td>
+                      <div class="btn-group">
+                        <button class="btn btn-primary">Modifier</button>
+                        <button class="btn btn-danger">Supprimer</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Numéro de téléphone:</strong></td>
+                    <td>{{ user.phone }}</td>
+                    <td>
+                      <div class="btn-group">
+                        <button class="btn btn-primary">Modifier</button>
+                        <button class="btn btn-danger">Supprimer</button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <button class="btn btn-success">Ajouter</button>
+          <!-- Bouton Ajouter -->
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-header text-center">
+          <h2>Règles pour les déplacements en véhicule</h2>
+        </div>
+        <div class="card-body">
+          {% if user.rules is not empty %}
+          <table>
+            <tbody>
+              {% for rule in user.rules %}
+              <tr>
+                <td>{{ rule.description }}</td>
+                <td>
+                  <div class="btn-group">
+                    <button class="btn btn-primary">Modifier</button>
+                    <button class="btn btn-danger">Supprimer</button>
+                  </div>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          {% endif %}
+          <button class="btn btn-success">Ajouter</button>
+          <!-- Bouton Ajouter -->
+        </div>
+      </div>
+      {% else %}
+      <p>Veuillez vous connecter pour accéder à votre profil.</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

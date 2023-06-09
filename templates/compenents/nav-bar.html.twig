@@ -14,7 +14,7 @@
           </button>
         <div class="navlinks-container">
           <a href="/covoiturage" aria-current="page">Trajet</a>
-           <a href="/covoiturage" aria-current="page">Mon Profil</a>
+           {# <a href="/profil" aria-current="page">Mon Profil</a> #}
         </div>
       </div>
 
@@ -22,10 +22,11 @@
         <a href="#" class="user-toggler" aria-label="Sign in page">
             <img src="./img/user.svg" alt="user icon"/>
         </a>
-        <div class="sign-btns">
+        <div class="sign-btns flex">
+      
             {% if app.user %}
                     <button onclick="window.location.href = '/logout';" type="button">Rechercher</button>
-                    <button onclick="window.location.href = '/logout';" type="button">Publier un trajet</button>
+                    <button onclick="window.location.href = '/profil';" type="button">profil</button>
                     <button onclick="window.location.href = '/logout';" type="button">Se déconnecter</button>
             {% else %}
                     <button onclick="window.location.href = '/login';" type="button">Rechercher</button>

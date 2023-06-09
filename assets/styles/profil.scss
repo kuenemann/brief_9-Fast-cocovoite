@@ -1,0 +1,59 @@
+.container {
+    margin-top: 30px;
+  }
+  
+  .container-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Ajustez cette valeur selon vos besoins */
+  }
+  
+  .card {
+    margin-bottom: 20px;
+  }
+  
+  .card-header {
+    background-color: #f8f9fa;
+  }
+  
+  .card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .table {
+    margin-bottom: 0;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .btn-group {
+    display: flex; /* Modifier la propriété display en flex */
+  }
+  
+  .btn {
+    margin-right: 5px;
+  }
+  
+  .btn.btn-danger {
+    background-color: red;
+    color: white;
+  }
+  
+  .btn.btn-success {
+    background-color: blue;
+    color: white;
+  }
+  
+  @media (max-width: 768px) {
+    .col-md-6 {
+      margin-bottom: 10px;
+    }
+  }
+  

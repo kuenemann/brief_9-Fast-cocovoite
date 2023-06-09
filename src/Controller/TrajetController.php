@@ -24,7 +24,9 @@ class TrajetController extends AbstractController
 
     #[Route('/covoiturage/{id}', name: 'app_trajet_details')]
     public function show(Ride $ride): Response
+    
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         return $this->render('trajet/trajet_details.html.twig', [
             'trajet' => $ride
         ]);
